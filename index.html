@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelCoders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<!-- Cambio... -->
+<body>
+
+    <style>
+        /************* BASE STYLES *************/
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #364147;
+            margin: 0;
+        }
+
+        input,
+        button {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        a {
+            color: #faa541;
+            text-decoration: none;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav {
+            padding: 10px 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        /***************************************/
+
+        .container {
+            margin: 0 auto;
+
+            max-width: 1170px;
+        }
+
+        section {
+            display: flex;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .flex-one {
+            flex: 1;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        .center {
+            justify-content: center;
+        }
+
+        .space-between {
+            justify-content: space-between;
+        }
+
+        .btn {
+            cursor: pointer;
+            border: 0;
+            padding: 6px 12px;
+            border-radius: 3px;
+            line-height: 1.4;
+        }
+
+        .btn-default {
+            color: white;
+            background-color: #faa541;
+        }
+
+        .btn-primary {
+            color: white;
+            background-color: #364147;
+        }
+
+        .form-control {
+            display: block;
+            padding: 6px 12px;
+            border: 1px solid #a0a0a0;
+            color: #8598a2;
+            line-height: 1.4;
+        }
+
+        .text-light {
+            font-size: 30px;
+            color: #a0a0a0;
+        }
+
+        .text-secondary {
+            font-size: 30px;
+            color: #faa541;
+        }
+
+        .text-primary {
+            font-size: 16px;
+            color: #364147;
+        }
+
+        .header-nav {
+            border-bottom: 1px solid #a0a0a0;
+        }
+
+        .brand {
+            width: 170px;
+            height: 85px;
+            margin-left: -15px;
+            margin-right: 60px;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .search-box {
+            width: 330px;
+            height: 30px;
+            padding: 6px 12px;
+            border: 1px solid #a0a0a0;
+        }
+
+        .search-button {
+            background-color: #a0a0a0;
+            color: white;
+            width: 100px;
+            height: 30px;
+            border: 0;
+            padding: 0;
+        }
+
+        .nav-list {
+            padding-left: 0;
+            width: 575px;
+            margin-top: 10px;
+        }
+
+        .nav-list li a {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+
+        .profile {
+            margin-left: auto;
+        }
+
+        .account {
+            text-align: right;
+            padding: 15px;
+            color: #364147;
+            font-size: 18px;
+        }
+
+        .account a {
+            font-size: 14px;
+        }
+
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+        }
+
+        .profile-pic img {
+            border-radius: 100px;
+            max-width: 100%;
+        }
+
+        .hero {
+            background-image: url('../img/Imagen.png');
+            height: 400px;
+            background-size: cover;
+            background-position: center center;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            left: -30px;
+            color: #faa541;
+        }
+
+        .hero h2 {
+            color: #faa541;
+        }
+
+        .hero h1,
+        .hero h2 {
+            font-size: 63px;
+            font-weight: 700;
+            line-height: 0.9;
+        }
+
+        .banner {
+            margin: 55px 15px;
+            width: 100%;
+            border-top: 1px solid #a0a0a0;
+            border-bottom: 1px solid #a0a0a0;
+            padding: 25px 0;
+        }
+
+        .banner img {
+            width: 250px;
+        }
+
+        .banner-text {
+            font-size: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .banner-text>div:last-child {
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .category {
+            flex: 0 0 25%;
+            padding: 0 15px;
+        }
+
+        .category img {
+            width: 100%;
+        }
+
+        .category-text {
+            color: #364147;
+            padding: 30px 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .category-text>div {
+            font-size: 16px;
+            font-weight: 200;
+            color: #faa541;
+        }
+
+        .category-text h3 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .full-banner {
+            padding: 0 15px;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .full-banner:before {
+            content: "";
+            position: absolute;
+            border: 1px solid #ffffff;
+            top: 30px;
+            bottom: 30px;
+            left: 50px;
+            right: 50px;
+            z-index: 1;
+        }
+
+        .full-banner-image {
+            flex: 0 0 58.333333%;
+            background-image: url('../img/pc.jpg');
+            background-size: cover;
+            background-position: top center;
+            min-height: 400px;
+        }
+
+        .full-banner-sidebar {
+            flex: 0 0 41.666667%;
+            background-color: #364147;
+            text-transform: uppercase;
+            padding: 30px;
+            color: white;
+        }
+
+        .full-banner-sidebar h4 {
+            font-size: 40px;
+            font-weight: 700;
+            font-style: italic;
+            color: #637f94;
+            line-height: 1;
+        }
+
+        .full-banner-sidebar h4:after {
+            content: "";
+            width: 100px;
+            height: 1px;
+            background-color: #faa541;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .full-banner-sidebar>div:nth-of-type(1) {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .full-banner-sidebar>div:nth-of-type(2) {
+            font-size: 25px;
+            font-weight: 200;
+            letter-spacing: 3px;
+        }
+
+        .full-banner-sidebar .btn.btn-default {
+            margin-top: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 0;
+            min-height: 330px;
+            background-color: black;
+        }
+
+        footer:after {
+            content: "";
+            background-color: #a0a0a0;
+            width: 75%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        .lists {
+            flex: 0 0 75%;
+            padding: 40px 15px;
+        }
+
+        .link-header {
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: white;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 0 0 4px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social ul li {
+            display: inline-block;
+        }
+
+        .social ul li a {
+            display: block;
+            width: 23px;
+            height: 23px;
+            background-size: 23px 23px;
+            background-position: center;
+        }
+
+        .twitter {
+            background-image: url('../img/twitter.svg');
+        }
+
+        .facebook {
+            background-image: url('../img/facebook.svg');
+        }
+
+        .instagram {
+            background-image: url('../img/instagram.svg');
+        }
+
+        .pinterest {
+            background-image: url('../img/pinterest.svg');
+        }
+
+        .ps {
+            flex: 0 0 25%;
+            padding: 40px 0;
+            color: #e5e5e5;
+            font-size: 16px;
+        }
+
+        .ps img {
+            max-width: 230px;
+        }
+
+        .demo {
+            padding: 0 30px;
+        }
+
+        .demo:before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            margin: 30px 0;
+            background: linear-gradient(to right, #f05a28 0, #e80a89 100%);
+        }
+
+        .copyright {
+            flex: 0 0 75%;
+            padding: 10px 0;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .newsletter .link-header {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .newsletter .link-subheader {
+            font-style: italic;
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .newsletter input {
+            border: 1px solid #364147;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter button {
+            width: 150px;
+            min-width: auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .category img {
+            width: 200px;
+            height: 300px;
+        }
+
+        .juegosGM-center {
+            text-align: center;
+        }
+    </style>
+
+    <!-- HERO -->
+    <section class="hero""">
+        <div class="container flex flex-column align-center center">
+            <h1>PIXEL</h1>
+            <h2>CODER-S</h2>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <!-- SALE BANNER -->
+        <section>
+            <div class="flex align-center center banner">
+                <img alt="Brown Boots" src="img/LogoGM.png">
+                <div class="banner-text">
+                    <div class="text-light">Software usado</div>
+                    <div class="text-secondary">"GameMaker Studio 2"</div>
+                    <div class="text-primary">Diseño de videojuegos 2d</div>
+                </div>
+                <img alt="Grey Boots" src="img/LogoGM.png">
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section>
+            <div class="category">
+                <a href="#">
+                    <img alt="Undertale" src="img/Undertale.jpg" />
+                    <div class="category-text">
+                        <h3>"Undertale"</h3>
+                        <div>Toby-Fox 2015</div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#">
+                    <img alt="Kid Klimbers" src="img/KtnaZero.jpg" />
+                    <div class="category-text">
+                        <h3>Katana-Zero</h3>
+                        <div>Askiisoft 2019</div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#">
+                    <img alt="Pack It In" src="img/Nidhogg.jpg" />
+                    <div class="category-text">
+                        <h3>Nidhogg</h3>
+                        <div>Messhof-Games 2014</div>
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#">
+                    <img alt="Nature's AC" src="img/BlackHole.jpg" />
+                    <div class="category-text">
+                        <h3>Blackhole</h3>
+                        <div>FiolaSoft-Studio 2015</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <h1 class="juegosGM-center">⬆ JUEGOS FAMOSOS DE GAMEMAKER ⬆</h1>
+        <br>
+        <h1 class="juegosGM-center">⬇ NUESTRO JUEGO ⬇</h1>
+
+        <!-- FULL BANNER -->
+        <section class="full-banner">
+            <div class="full-banner-image"></div>
+            <div class="flex flex-column align-center center full-banner-sidebar">
+                <h4>Pixel Coder's <br> 2024</h4>
+                <div>Pixel-Assembler</div>
+            </div>
+        </section>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
